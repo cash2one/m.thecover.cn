@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <meta name="apple-mobile-web-app-title" content="封面新闻"/>
+    <meta name="format-detection" content="telephone=no, email=no, address=no"/>
+    <title>封面新闻-因人而异</title>
+    <link rel="alternate icon" type="image/png" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
+
+    <style type="text/css">
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        p {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, "Roboto", "Droid Sans", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft YaHei UI", "Microsoft JhengHei UI", "STHeiti", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-transition: opacity 0.3s ease-in;
+            -moz-transition: opacity 0.3s ease-in;
+            -ms-transition: opacity 0.3s ease-in;
+            -o-transition: opacity 0.3s ease-in;
+            transition: opacity 0.3s ease-in;
+        }
+        .bg {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: -10;
+        }
+        .transparent {
+            opacity: 0;
+            color: transparent;
+        }
+        .img-wrapper {
+            position: relative;
+        }
+        .positioned-ele {
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            width: 80%;
+            height: 10%;
+            display: inline-block;
+            z-index: 10;
+        }
+        p.transparent {
+            height: 13%;
+        }
+    </style>
+</head>
+
+<body class="transparent">
+<script src="http://wapcdn.thecover.cn/wap/1.0.0/js/zepto.min.js"></script>
+<script>
+    function revealBody() {
+        $('body').removeClass('transparent');
+    }
+</script>
+<div class="img-wrapper">
+    <img class="bg" src="http://wapcdn.thecover.cn/wap/1.5.0/img/bg_intro_fengmianhao.jpg" onload="revealBody();"/>
+    <!--<p class="positioned-ele transparent" id="p1"></p>-->
+    <a class="positioned-ele" class="email" href="mailto:wm@thecover.cn" style="top: 25%;"></a>
+    <a class="positioned-ele" class="web" href="http://cm.thecover.cn" style="top: 40%;"></a>
+    <a class="positioned-ele" class="web" href="http://cm.thecover.cn" style="top: 62%;"></a>
+</div>
+
+</body>
+
+</html>

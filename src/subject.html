@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="renderer" content="webkit">
+  <meta name="apple-mobile-web-app-title" content="封面新闻" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>封面新闻-因人而异</title>
+  <link rel="alternate icon" type="image/png" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
+  <link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/common.css">
+  <link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/details.css">
+  <!-- <link type="text/css" rel="stylesheet" href="css/common.css"> -->
+  <!-- <link type="text/css" rel="stylesheet" href="css/details.css"> -->
+  <style type="text/css">
+    #page_subject {
+      background-color: #E8E9E8;
+    }
+    
+    #page_subject .content {
+      -webkit-transition: opacity 0.3s ease-in;
+      -moz-transition: opacity 0.3s ease-in;
+      -ms-transition: opacity 0.3s ease-in;
+      -o-transition: opacity 0.3s ease-in;
+      transition: opacity 0.3s ease-in;
+      padding: 0 0.3rem;
+    }
+    
+    #page_subject .transparent {
+      opacity: 0;
+    }
+    
+    #page_subject * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    }
+    
+    #page_subject #cover_img_wrapper * {
+      text-align: center;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    #page_subject #cover_img_wrapper {
+      -webkit-box-shadow: 3px 3px 5px 2px rgba(135, 128, 128, 0.4);
+      box-shadow: 3px 3px 5px 2px rgba(135, 128, 128, 0.4);
+      margin-bottom: 0.3rem;
+    }
+    
+    #page_subject #cover_img_wrapper.transparent {
+      opacity: 0;
+    }
+    
+    #page_subject .cover-img {
+      font-size: 1.3333rem;
+      color: white;
+      height: 100%;
+      position: relative;
+    }
+        .avatar-picture {
+            display: none;
+            position: absolute;
+            /*top: 50%;*/
+            top: 45%;
+            left: 50%;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -o-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            border: 3px solid rgba(204,204,204,0.36);
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            overflow: hidden;
+        }
+        #page_subject .cover-img.fengmianhao .avatar-picture {
+            display: block;
+        }
+        .avatar-picture > img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+    #page_subject .bottom-cover {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 10%;
+            background-image: url("http://wapcdn.thecover.cn/wap/1.4.0/img/cover_subject.png");
+      z-index: 10;
+    }
+    
+    #page_subject .zhuanti .bottom-cover {
+      display: none;
+    }
+    
+    #page_subject #subject_name {
+      font-size: 1.9rem;
+      width: 100%;
+      padding: 0 1.5rem;
+      position: absolute;
+      bottom: 13%;
+      left: 0;
+      line-height: 1.9rem;
+      height: 1.9rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: bold;
+      text-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.7);
+    }
+    
+
+    #page_subject .cover-img #btn_fengmianhao_subscription {
+            background-image: url("http://wapcdn.thecover.cn/wap/1.4.0/img/icon_fengmianhao_subscription.png");
+            width: 50px;
+            height: 50px;
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+            z-index: 200;
+            cursor: pointer;
+        }
+        #page_subject .cover-img.fengmianhao #subject_name {
+            font-size: 1.38888rem;
+            font-weight: normal;
+            bottom: 25%;
+        }
+        #page_subject .cover-img.fengmianhao .layer {
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,0.2);
+        }
+    #page_subject #subject_desc {
+      padding: 1.25rem 2.8rem;
+      color: #a3a3a3;
+      font-size: 0.75rem;
+      line-height: 1.5rem;
+      max-height: 7rem;
+      min-height: 4rem;
+      overflow: hidden;
+      background-color: white;
+    }
+  </style>
+  <style id="inserted_via_script" type="text/css"></style>
+  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <script type="text/javascript" src="http://wapcdn.thecover.cn/wap/1.0.0/js/fetchWeChatConf.js"></script>
+</head>
+
+<body id="page_subject" class="subject-body">
+  <div id="cover_img_wrapper" class="transparent"> </div>
+  <div class="content limited-max-width transparent">
+    <div id="list_of_news"></div>
+  </div>
+<div class="transparent">
+    <button class="load-more">点击或上拉加载更多</button>
+</div>
+  <div class="tc-back-top"> <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/top-icon.png" alt="返回顶部"> </div>
+<div class="tc-foot-download transparent" id="foot-download">
+    <div class="tc-logo">
+      <a href="index.html"><img src="http://wapcdn.thecover.cn/wap/1.0.0/img/logo-icon.png" alt="封面新闻-因人而异"></a>
+    </div>
+    <div class="tc-download-close" id="foot-close-btn"></div>
+    <a href="downloadApp.html" class="DownloadApp" data-lt="footer">
+      <button class="tc-btn tc-btn-lg tc-fr">打开APP</button>
+    </a>
+  </div>
+  <script src="http://wapcdn.thecover.cn/wap/1.0.0/js/common.js"></script>
+  <!-- <script src="js/common.js"></script> -->
+</body>
+</html>

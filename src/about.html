@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <meta name="apple-mobile-web-app-title" content="封面新闻" />
+    <meta name="format-detection" content="telephone=no, email=no, address=no"/>
+    <title>封面新闻-因人而异</title>
+    <link rel="alternate icon" type="image/png" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
+    <!--<link type="text/css" rel="stylesheet" href="./css/common.css">-->
+    <style type="text/css">
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, "Hiragino Sans GB", Roboto, "Droid Sans", "Microsoft YaHei", "Microsoft YaHei UI", "Microsoft JhengHei UI", STHeiti, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+            -webkit-transition: opacity 0.3s ease-in;
+            -moz-transition: opacity 0.3s ease-in;
+            -ms-transition: opacity 0.3s ease-in;
+            -o-transition: opacity 0.3s ease-in;
+            transition: opacity 0.3s ease-in;
+        }
+
+        .transparent {
+            opacity: 0;
+        }
+
+        img.part {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+
+        .main {
+            padding: 0 1.5625rem;
+        }
+
+        .main h3 {
+            font-size: 1.1666666rem;
+            color: #474747;
+        }
+
+        .main h4 {
+            font-size: 0.833333rem;
+            color: #474747;
+            margin: 0;
+            margin-left: 1rem;
+            margin-top: 0.708333rem;
+            line-height: 1.66666rem;
+        }
+
+        .main p {
+            color: #1e1d20;
+            font-size: 0.708333rem;
+            display: block;
+            text-decoration: none;
+            line-height: 1.14583rem;
+        }
+
+        .main a {
+            color: #1e1d20;
+            font-size: 0.708333rem;
+            display: block;
+            text-decoration: none;
+            line-height: 1.14583rem;
+        }
+
+        .contact-us {
+            /*padding: 0 1.5625rem;*/
+            padding: 0 2rem;
+        }
+
+        .contact-us p,
+        .contact-us a {
+            margin-left: 2.73rem;
+        }
+
+        .contact-us h4,
+        .tel,
+        .mail,
+        .qq,
+        .title-about,
+        .title-contact {
+            position: relative;
+        }
+
+        .contact-us h4:before,
+        .tel:before,
+        .mail:before,
+        .qq:before,
+        .title-about:before,
+        .title-contact:before {
+            position: absolute;
+            left: -1.73rem;
+            top: 0.354rem;
+            line-height: 1.438rem;
+            content: "";
+            display: inline-block;
+            width: 0.73rem;
+            height: 0.73rem;
+            margin-right: 0.73rem;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .contact-us h4:before {
+            left: -1rem;
+        }
+
+        .title-about:before,
+        .title-contact:before {
+            width: 1.1666666rem;
+            height: 1.1666666rem;
+            line-height: 1.1666666rem;
+            top: 0;
+        }
+
+        .title-about,
+        .title-contact {
+            margin-left: 2rem;
+            line-height: 1.1666666rem;
+        }
+
+        .contact-us h4:before {
+            background-image: url("http://wapcdn.thecover.cn/wap/1.0.0/img/icn_pointer.png");
+        }
+
+        .tel:before {
+            background-image: url("http://wapcdn.thecover.cn/wap/1.0.0/img/icn_phone.png");
+            top: 0.25rem;
+        }
+
+        .qq:before {
+            background-image: url("http://wapcdn.thecover.cn/wap/1.0.0/img/icn_qq.png");
+            top: 0.25rem;
+        }
+
+        .mail:before {
+            background-image: url("http://wapcdn.thecover.cn/wap/1.0.0/img/icn_mail.png");
+            width: 1.0119rem;
+            height: 0.70833rem;
+            top: 0.25rem;
+        }
+
+        .title-about:before {
+            left: -2rem;
+            background-image: url("http://webcdn.thecover.cn/wap/1.0.0/img/icn_tel.png");
+        }
+
+        .title-contact:before {
+            left: -2rem;
+            background-image: url("http://webcdn.thecover.cn/wap/1.0.0/img/icn_info.png");
+        }
+    </style>
+</head>
+
+<body class="transparent">
+<script src="http://wapcdn.thecover.cn/wap/1.0.0/js/zepto.min.js"></script>
+<script>
+    function revealBody() {
+        $('body').removeClass('transparent');
+    }
+</script>
+<img id="top_part_about" class="part" src="http://wapcdn.thecover.cn/wap/1.2.4/img/top_part_about.jpg" onload="revealBody();" />
+<div class="main">
+    <div class="container">
+        <h3 class="title-about">关于我们</h3>
+        <p>封面新闻是一款面向年轻人的新闻资讯类APP，它以前沿科技为驱动，以原创及深度报道为基础 ，致力于在不同场景下，为不同兴趣的人推荐不同类型的优质文章。它永远是最懂你的新闻资讯客户端。</p>
+
+        <h3 class="title-contact">联系我们</h3>
+        <div class="contact-us">
+            <h4>公司地址</h4>
+            <p style="margin-left: 1rem;">成都市锦江区红星路二段70号封面传媒</p>
+            <h4>我要爆料</h4>
+            <a class="mail" href="mailto:news@thecover.cn">news@thecover.cn</a>
+            <h4>内容合作</h4>
+            <a class="tel" href="tel:028-86969467"> 028-86969467</a>
+            <a class="qq">343388491</a>
+            <a class="mail" href="mailto:media@thecover.cn">media@thecover.cn</a>
+            <h4>商务运营合作</h4>
+            <a class="tel" href="tel:18502852975"> 18502852975</a>
+            <a class="mail" href="mailto:bd@thecover.cn">bd@thecover.cn</a>
+            <h4>广告合作</h4>
+            <a class="qq">398303741</a>
+            <a class="mail" href="mailto:ad@thecover.cn">ad@thecover.cn</a>
+            <h4>市场合作</h4>
+            <a class="qq">290620114</a>
+            <a class="mail" href="mailto:biz@thecover.cn">biz@thecover.cn</a>
+            <h4>加入我们</h4>
+            <a class="mail" href="mailto:hr@thecover.cn">hr@thecover.cn</a>
+        </div>
+    </div>
+</div>
+<img class="part" src="http://wapcdn.thecover.cn/wap/1.0.0/img/bottom_part_about.jpg" />
+
+</body>
+
+</html>

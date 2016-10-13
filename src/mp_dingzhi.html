@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>《封面新闻·定制WAP页》合作流程及常见技术问题</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <meta name="apple-mobile-web-app-title" content="封面新闻" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="alternate icon" type="image/png" href="http://7xso7d.com1.z0.glb.clouddn.com/wap/1.0.0/img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="http://7xso7d.com1.z0.glb.clouddn.com/wap/1.0.0/img/favicon.png">
+    <style>
+        body{
+            font-family: microsoft yahei;
+            padding: 0;
+            margin: 0;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        h2{
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        .container{
+            margin: 0 4%;
+        }
+        .logo{
+            margin-top: .4rem;
+        }
+        .logo img{
+            width: 44%;
+        }
+        h3{
+            font-size: 1.0rem;
+        }
+
+        p.item{
+            font-size: 1rem;
+            padding-left: 1.2rem;
+        }
+        @media screen and (max-width: 320px) {
+            body{font-size: 14px;}
+        }
+        @media screen and (min-width: 321px) and (max-width: 413px) {
+            body{font-size: 16px;}
+        }
+        @media screen and (min-width: 414px) and (max-width: 639px) {
+            body{font-size: 18px;}
+        }
+
+        @media screen and (min-width: 640px) {
+            body {
+                font-size: 20px;
+            }
+            .logo img{
+                width: 36%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+</div>
+<div class="container">
+    <div class="logo">
+        <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/download_logo_20160503.png" alt=""/>
+    </div>
+    
+    <div class="main">
+        <h2>
+            《封面新闻·定制WAP页》合作流程及常见技术问题
+        </h2>
+        <h3>1. 页面体验有什么要求么？</h3>
+        <p class="item">
+            页面体验不建议出现如下任一要素，如出现，封面新闻保留限制导流或自动转码的权利；<br/>
+            1）页面超时率（>3秒算作超时）大于80%<br/>
+            2）文章前（页面顶部）展现文字链广告、图片广告或者app下载banner；<br/>
+            3）页面存在较大的空白区域；<br/>
+            4）页面含有广告弹窗；<br/>
+            5）文章结束处有站内评论发布入口<br/>
+            6）文章结束处有大量的站内评论、站内相关资讯or站内广告<br/>
+        </p>
+
+        <h3>2.文章页面中有什么不能放的元素么，还是不限制，都可以放？</h3>
+        <p class="item">
+            由于定制页的绝大部分功能都已经在TTDefault.js中实现了， 所以尽量不要引入其他脚本， 一个jquery.min.js可能占到页面体积的一半以上， 这对用户来说是不公平的， 一半流量都浪费掉了。 除了百度统计和谷歌统计，不建议用其他统计代码。<br/>
+        </p>
+        <p class="item">
+            不能使用广告联盟的广告代码， 如百度广告， 淘宝广告等<br/>
+        </p>
+        <p class="item">
+            视频video标签必须有preload="none"，必须没有autoplay属性<br/>
+        </p>
+        <p class="item">
+            将页面缓存设置为10分钟<br/>
+        </p>
+
+        <h3>3.我已经做好了页面，之后还需要维护么?</h3>
+        <p class="item">
+            其次，要保证页面的稳定， 不能稍微有一点流量就宕机了。 建议静态文件使用cdn分流。<br/>
+            最后，删除文章的http code设置为404以便于死链检测<br/>
+        </p>
+
+
+        <h3>4.定制页可以做成在封面app里面是一个样,在外面是另一个样吗?</h3>
+        <p class="item">
+            不可以。<br/>
+            需要保证在封面app内将文章分享到微信,微博等社交媒体后, 页面仍然保留封面的脚本和样式。<br/>
+            禁止为定制页面添顶踩评论,相关阅读,分享等模块。<br/>
+        </p>
+
+        <h3>5.我还有疑问，联系谁?</h3>
+		<p class="item">合作邮箱：content@thecover.cn</p>
+    </div>
+
+</div>
+
+</body>
+</html>

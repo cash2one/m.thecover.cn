@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <meta name="apple-mobile-web-app-title" content="封面新闻" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>封面新闻-因人而异</title>
+    <link rel="alternate icon" type="image/png" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
+    <link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/common.css">
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/details.css">
+    <link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/live_casting.css">
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('startload').style.display = 'none';
+        }
+    </script>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+        .page-live-casting * {
+            margin: 0px;
+            padding: 0px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            display: block;
+        }
+
+        ul,
+        li {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body,
+        textarea {
+            font-family: -apple-system, "Roboto", "Droid Sans", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft YaHei UI", "Microsoft JhengHei UI", "STHeiti", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        }
+
+        body {
+            background-color: rgb(244, 247, 255);
+            padding: 0px 0.3125rem;
+            -webkit-transition: opacity 100ms ease-in;
+            -moz-transition: opacity 100ms ease-in;
+            -ms-transition: opacity 100ms ease-in;
+            -o-transition: opacity 100ms ease-in;
+            transition: opacity 100ms ease-in;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body.hidden {
+            visibility: hidden;
+        }
+
+        body.transparent {
+            opacity: 0;
+        }
+    </style>
+    <style id="inserted_via_script" type="text/css"></style>
+</head>
+
+<body id="the_page_of_live_casting" class="hidden transparent page-live-casting">
+<div id="img_gallery_cover">
+    <p class="index-of-images"></p>
+    <div id="slider" class="swipe">
+        <div class='swipe-wrap'>
+        </div>
+    </div>
+</div>
+<div id="startload" style="height: 100%; width: 100%; background: #fefefe; position: fixed; z-index: 999; text-align: center; padding-top: 150px;"> <img src="http://7xso7d.com2.z0.glb.qiniucdn.com/public/img/load.gif" width="150px"> </div>
+<div id="maybe_fixed_position">
+    <div id="video_wrapper" webkit-playsinline="true" x-webkit-airplay="true" class="limited-max-width same-height hidden"> <video id="video" type="video/mp4" autoplay preload="metadata" controls webkit-playsinline="true" x-webkit-airplay="true" class="same-height">
+        </video>
+        <div class="play-button hidden"></div>
+        <div class="controls-bar">
+            <div class="enter-fullscreen-button"></div>
+            <div class="counts-of-viewers hidden"></div>
+        </div>
+        <div id="tip_cover" class="same-height">视频信号中断,点击刷新</div>
+    </div>
+    <h1 id="brief" class="unselectable"></h1>
+    <nav id="nav" class="unselectable">
+        <ul id="nav_tabs">
+            <li id="tab_livecast" class="active"><span class="big-span">直播</span></li>
+            <li id="tab_comments" data-init="false"><span class="big-span">评论<em class="counts-of-comments"></em></span></li>
+        </ul>
+        <div id="what_people_said"> <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/talk-icon.png" alt="最新评论"> 大家这么说 <span class="counts-of-comments"></span> </div>
+    </nav>
+</div>
+<div id="maybe_pushed_down" class="bc-purple hidden">
+    <div id="naved_container" class="unselectable">
+        <div id="cards_container" class="container"></div>
+        <div id="comments_container" class="container hidden" data-latest-reply-id="0">
+            <div class="replies-list limited-max-width">
+                <!--<button type="button" class="tc-btn tc-btn-block DownloadApp">打开封面新闻，查看更多评论</button>--></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://wapcdn.thecover.cn/wap/1.0.0/js/common.js"></script>
+<!-- <script src="js/common.js"></script> -->
+</body>
+</html>

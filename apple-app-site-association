@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "SWM5MN65PP.com.hxdsw.fengmian",
+                "paths": [ "/UniversalLinks/*", "*" ]
+            }
+        ]
+    }
+}
