@@ -166,8 +166,8 @@ define(function (require) {
 				isImg = false;
 				// 没有图片，改变呈现样式
 				$('.actionTitle').css({
-					background: '#363636',
-					height: '3.0rem',
+					background: '#d4412a',
+					height: '3.0rem'
 				});
 				if(COVERAPP.Attribute.isAndroid()){
 					$('.actionTitle').css({
