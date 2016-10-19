@@ -9,10 +9,7 @@ define(function (require) {
     init: function () {
       var self = this;
       COVER.juicer_register(juicer);
-      /*$('.DownloadApp, #img_video').on('click', function () {
-        var lt = $(this).data('lt') || '';
-        COVER.downloadUrl(lt, id, newsFlag);
-      });*/
+      self.setDimensions();
       $('#startload').show();
       COVER.$post(COVER.apis().newsDetail, 'data=' + JSON.stringify({
             news_id: id
@@ -50,7 +47,17 @@ define(function (require) {
           self.initRelated(related, infotype);
         }
         $('#startload').hide();
+        $('body').css({
+          'padding-bottom': ($(window).width() * 0.125410) + 'px'
+        });
         $('body').removeClass('transparent');
+      }, function (err_code) {
+        // console.log(JSON.stringify(err_code));
+        if (parseInt(err_code) === 432 || parseInt(err_code) === 500) {
+          $('html').append($('<div class="layer-no-such-ariticle"></div>'));
+        } else {
+          return COVER.errorMsg('网络请求失败~~');
+        }
       });
       this.getDynamic();
       this.initTalk();
@@ -63,6 +70,29 @@ define(function (require) {
           });
       // console.log(payload);
       return COVER.$post(COVER.apis().getReplyList, payload);
+    },
+    setDimensions: function () {
+      var img_w = $('#list_of_news').width() * 0.4;
+      var img_h = parseInt(img_w / 4 * 3);
+      var single_big_img_h = parseInt($('#list_of_news').width() / 16 * 9);
+      var banner_h = parseInt($(window).width() / 16 * 9);
+      var text = [
+        '.is-single-img .cover-of-single-imgs {border-left-width: ',
+        (img_w / 10) + 'px;}',
+        '.is-single-img:nth-child(2n+1) .cover-of-single-imgs {border-bottom-width: ',
+        (img_h) + 'px;}',
+        '.is-single-img:nth-child(2n) .cover-of-single-imgs {border-top-width: ',
+        (img_h) + 'px;}',
+        '.is-single-img .small-image-img {height: ',
+        (img_h) + 'px;}',
+        '#list_of_news .news-items.is-single-big-img .thumbnail-wrapper {height: ',
+        (single_big_img_h) + 'px;}',
+        '#list_of_news .news-items.is-video .thumbnail-wrapper {height: ',
+        (single_big_img_h) + 'px;}',
+        '#bannerbox, #banner, .swipe-a {height: ',
+        (banner_h) + 'px;}'
+      ].join('');
+      $('#inserted_via_script').text(text);
     },
     // 新闻详情底部信息
     getDynamic: function () {
@@ -95,7 +125,7 @@ define(function (require) {
           });
           $('.news-list ul').html(juicer(self.talkTpl(), data));
         } else {
-          $('.news-list').addClass('notalk').html('还没有人评论过，快去APP中抢沙发吧！');
+          $('.news-list').addClass('notalk').html('<img src="https://wapcdn.thecover.cn/wap/2.0.0/img/sofa.png">');
         }
       });
     },
@@ -103,76 +133,51 @@ define(function (require) {
       // console.log(data);
       var self = this;
       var tpl = self.relatedTpl();
-      if (infotype == 'video') {
-        tpl = self.relatedVideoTpl();
-      }
       var related_block = juicer(tpl, {
         data: data
       });
-      $('.article').after(related_block).promise().then(function () {
+      $('#list_of_news').append(related_block).promise().then(function () {
         $('.thumbnail').css('height', $('.thumbnail').width() / 16 * 9 + 'px');
       });
     },
     relatedTpl: function () {
       var tpl = [
-        '<div class="related limited-max-width">',
-        '    <div class="related-title">',
-        '        <div class="related-name tc-disbk">',
-        '            <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/news-icon.png" alt="相关新闻">',
-        '            <span>相关新闻</span>',
+        '{@each data as item}',
+        // '  {@if item.flag == 1}',
+        '  {@if item.flag}',
+        '    <section class="news-items is-single-img">',
+        '      {@if item.subject_id}',
+        '        <a href="${item.subject_id, item.flag | Link}">',
+        '      {@else}',
+        '        <a href="${item.news_id, item.flag | Link}" onclick="COVER.jumpToExternalLink(\'${item.flag + ("_") + item.news_id}\')">',
+        '      {@/if}',
+        '        <div class="small-image">',
+        '          <img src="${item.img_url}" class="small-image-img">',
+        '          <div class="cover-of-single-imgs"></div>',
         '        </div>',
-        '    </div>',
-        '    <div class="related-list">',
-        '     <div class="related-list-inner">',
-        '        {@each data as item}',
-        '     <div class="related-news-item">',
-        '        <a href="${item.news_id, item.flag | Link}">',
-        '                <div class="thumbnail" style="background-image: url(${item.img_url});"></div>',
-        '<div class="below-img">',
-        '                <h3>${item.news_title}</h3>',
-        '                <div class="related-date">',
-        '                    <span>${item.source | source}</span>',
-        '                    <span>${item.review_count}</span>',
-        '                </div>',
-        '</div>',
-        '        </a>',
-        '      </div>',
-        '        {@/each}',
-        '     </div>',
-        '    </div>',
-        '</div>'
-      ].join('');
-      return tpl;
-    },
-    // 相关视频模板
-    relatedVideoTpl: function () {
-      var tpl = [
-        '<div class="related limited-max-width">',
-        '    <div class="related-title">',
-        '        <div class="related-name tc-disbk">',
-        '            <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/news-icon.png">',
-        '            <span>相关视频</span>',
-        '        </div>',
-        '    </div>',
-        '    <div class="related-list">',
-        '     <div class="related-list-inner">',
-        '        {@each data as item}',
-        '            <div class="related-news-item">',
-        '        <a href="${item.news_id, item.flag | Link}">',
-        '                <div class="thumbnail" style="background-image: url(${item.img_url});"></div>',
-        '<div class="below-img">',
-        '                <h3>${item.news_title}</h3>',
-        '                <div class="related-date">',
-        '                    <span>${item.source | source}</span>',
-        '                    <span>${item.review_count}</span>',
-        '                </div>',
+        '        <div class="small-image-title">',
+        '          <h3>${item.news_title}</h3>',
+        '          <div class="news-items-meta">',
+        '            <div class="news-items-meta-prop">',
+        '              <ul>',
+        '                <li class="tc-list-source">',
+        '                  {@if item.label}',
+        '                    <img src="${item.label | LabelImg}">',
+        '                  {@/if}',
+        '                  ${item.source | source}',
+        '                </li>',
+        '              </ul>',
         '            </div>',
-        '        </a>',
-        '      </div>',
-        '        {@/each}',
-        '    </div>',
-        '    </div>',
-        '</div>'
+        '            <div class="tc-list-imgread">',
+        '              <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/ege-icon.png" alt="阅读量">',
+        '                ${item.review_count | view_count}',
+        '            </div>',
+        '          </div>',
+        '        </div>',
+        '      </a>',
+        '    </section>',
+        '  {@/if}',
+        '{@/each}'
       ].join('');
       return tpl;
     },

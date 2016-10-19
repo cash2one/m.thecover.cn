@@ -7,70 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="renderer" content="webkit">
     <meta name="apple-mobile-web-app-title" content="封面新闻" />
-    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="telephone=no, email=no, address=no"/>
     <title>封面新闻-因人而异</title>
     <link rel="alternate icon" type="image/png" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
-    <link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/common.css">
-    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/details.css">
+    <!--<link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/common.css">-->
+    <!--<link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/details.css">-->
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/details.css">
     <link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/live_casting.css">
+
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         window.onload = function () {
             document.getElementById('startload').style.display = 'none';
         }
     </script>
     <style type="text/css">
-        html, body {
-            height: 100%;
-        }
-        .page-live-casting * {
-            margin: 0px;
-            padding: 0px;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        li {
-            display: block;
-        }
-
-        ul,
-        li {
-            margin: 0px;
-            padding: 0px;
-        }
-
-        body,
-        textarea {
-            font-family: -apple-system, "Roboto", "Droid Sans", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft YaHei UI", "Microsoft JhengHei UI", "STHeiti", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-        }
-
-        body {
-            background-color: rgb(244, 247, 255);
-            padding: 0px 0.3125rem;
-            -webkit-transition: opacity 100ms ease-in;
-            -moz-transition: opacity 100ms ease-in;
-            -ms-transition: opacity 100ms ease-in;
-            -o-transition: opacity 100ms ease-in;
-            transition: opacity 100ms ease-in;
-            overflow-x: hidden;
-            width: 100%;
-            min-height: 100%;
-        }
-
-        body.hidden {
-            visibility: hidden;
-        }
-
-        body.transparent {
-            opacity: 0;
-        }
+        body,html{height:100%}.page-live-casting *{margin:0;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}ul{list-style-type:none}li{display:block}li,ul{margin:0;padding:0}body,textarea{font-family:-apple-system,Roboto,"Droid Sans","Hiragino Sans GB","Microsoft YaHei","Microsoft YaHei UI","Microsoft JhengHei UI",STHeiti,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif}body{background-color:#f4f7ff;padding:0 .3125rem;-webkit-transition:opacity .1s ease-in;-moz-transition:opacity .1s ease-in;-ms-transition:opacity .1s ease-in;-o-transition:opacity .1s ease-in;transition:opacity .1s ease-in;overflow-x:hidden;width:100%;min-height:100%}body.hidden{visibility:hidden}body.transparent{opacity:0}
     </style>
     <style id="inserted_via_script" type="text/css"></style>
 </head>
@@ -100,7 +54,7 @@
             <li id="tab_livecast" class="active"><span class="big-span">直播</span></li>
             <li id="tab_comments" data-init="false"><span class="big-span">评论<em class="counts-of-comments"></em></span></li>
         </ul>
-        <div id="what_people_said"> <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/talk-icon.png" alt="最新评论"> 大家这么说 <span class="counts-of-comments"></span> </div>
+        <div id="what_people_said"> <img src="http://wapcdn.thecover.cn/wap/2.0.0/img/talk-icon.png" alt="最新评论"> 大家这么说 <span class="counts-of-comments"></span> </div>
     </nav>
 </div>
 <div id="maybe_pushed_down" class="bc-purple hidden">
@@ -113,7 +67,7 @@
         </div>
     </div>
 </div>
-<script src="http://wapcdn.thecover.cn/wap/1.0.0/js/common.js"></script>
-<!-- <script src="js/common.js"></script> -->
+<!--<script src="http://wapcdn.thecover.cn/wap/1.0.0/js/common.js"></script>-->
+ <script src="js/common.js"></script>
 </body>
 </html>

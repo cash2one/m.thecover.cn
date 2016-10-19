@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="renderer" content="webkit">
     <meta name="apple-mobile-web-app-title" content="封面新闻" />
-    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="telephone=no, email=no, address=no"/>
     <title>封面新闻：为年轻人专属定制的新闻资讯APP</title>
     <meta name="Description" content="兴趣由你选择，内容由我推荐；24小时重点资讯每日准点送达；汇聚原创力，精彩一览无遗" />
     <link rel="alternate icon" type="image/png" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
@@ -22,7 +22,7 @@
         body {
             font-family: -apple-system, "Hiragino Sans GB", "Roboto", "Droid Sans", "Microsoft YaHei", "Microsoft YaHei UI", "Microsoft JhengHei UI", "STHeiti", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Helvetica Neue", sans-serif;
             margin: 0 auto;
-            background: url('http://wapcdn.thecover.cn/wap/1.0.0/img/download_bg_20160503.jpg') no-repeat;
+            background: url('http://wapcdn.thecover.cn/wap/2.0.0/img/download_bg.jpg') no-repeat;
             background-size: 100%;
         }
 
@@ -98,14 +98,95 @@
                 -webkit-transform: translateY(0)
             }
         }
+
+        .tc-foot-download {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    width: 100%;
+    z-index: 1000
+}
+.tc-foot-download img.bg {
+    width: 100%;
+    height: auto;
+    border: none;
+    vertical-align: middle;
+}
+.foot-index-page-layer {
+    z-index: 100;
+    width: 40%;
+    height: 100%;
+    right: unset;
+    left: 0;
+}
+.foot-index-page-layer, .foot-download-a-layer {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 66%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+}
+.tc-download-close {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 10%;
+    height: 66%;
+    z-index: 100;
+}
+.foot-index-page-layer, .foot-download-a-layer {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 66%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+}
+.foot-index-page-layer {
+    z-index: 100;
+    width: 40%;
+    height: 100%;
+    right: unset;
+    left: 0;
+}
+
+.tc-foot-download img.bg {
+    width: 100%;
+    height: auto;
+    border: none;
+    vertical-align: middle;
+}
+
     </style>
 </head>
 
 <body>
-<div class="animation content"> <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/download_content_20160612.png"> </div>
-<div class="download" id="download"> <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/logo-icon.png">
-    <div class="download-btn">立即打开</div>
+<div class="animation content"> 
+    <img src="http://wapcdn.thecover.cn/wap/2.0.0/img/download_content.png"> 
 </div>
+<!--<div class="download" id="download"> 
+    <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/logo-icon.png">
+    <div class="download-btn">立即打开</div>
+</div>-->
+        <div class="tc-foot-download" id="download">
+            <a href="index.html" class="foot-index-page-layer"></a>
+            <div class="tc-download-close" id="foot-close-btn"></div>
+            <a href="downloadApp.html" class="foot-download-a-layer download-btn" data-lt="foot"></a>
+            <img class="bg" src="http://wapcdn.thecover.cn/wap/2.0.0/img/bg-fixed-footer.png">
+        </div>
 <div class="open" id="open"> <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/download_open_20160503.png"> </div> <iframe id="iframe" style="display: none !important; border: 0;" src="cover://cn.thecover.www/open"></iframe>
 <script type="text/javascript" src="https://api.thecover.cn/download.js"></script>
 <script type="text/javascript">

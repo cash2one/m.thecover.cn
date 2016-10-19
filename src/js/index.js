@@ -63,10 +63,10 @@ define(function (require) {
       return this.SectionRender();
     },
     setDimensions: function () {
-      var img_w = jQ('#list_of_news').width() / 2;
+      var img_w = jQ('#list_of_news').width() * 0.4;
       var img_h = parseInt(img_w / 4 * 3);
       var single_big_img_h = parseInt(jQ('#list_of_news').width() / 16 * 9);
-      var banner_h = parseInt(jQ(window).width() * 0.75);
+      var banner_h = parseInt(jQ(window).width() / 16 * 9);
       var text = [
         '.is-single-img .cover-of-single-imgs {border-left-width: ',
         (img_w / 10) + 'px;}',
@@ -218,7 +218,7 @@ define(function (require) {
     navTpl: function () {
       var tpl = [
         '{@each list as nav}',
-        '<a href="index.html?id=${nav.channel_id}&type=${nav.type}"><li class="${nav.channel_id,nav.type | isNav}">${nav.channel}</li></a>',
+        '<li class="${nav.channel_id,nav.type | isNav}"><a href="index.html?id=${nav.channel_id}&type=${nav.type}">${nav.channel}</a></li>',
         '{@/each}'
       ].join('');
       return tpl;

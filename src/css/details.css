@@ -7,12 +7,28 @@
 .below-img,
 .related-news-item {
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.layer-no-such-ariticle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    background-image: url(http://wapcdn.thecover.cn/wap/2.0.0/img/no-such-ariticle.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25%
 }
 
 body {
     background: #eee;
-    padding-bottom: 3rem;
+    padding-bottom: 2.55rem;
     overflow-x: hidden;
     -webkit-transition: opacity .3s ease-in;
     -moz-transition: opacity .3s ease-in;
@@ -25,47 +41,55 @@ body.transparent {
     opacity: 0
 }
 
+body#page_news_details {
+    line-height: unset!important
+}
+
 .subject-body {
     background: #fff
 }
 
 .article {
-    padding: .8rem 1rem;
-    margin: 0 auto .5rem;
+    padding: 1.706924rem .805152979rem;
+    margin: 0 auto .38647342rem;
     background: #fefefe
 }
 
 .article h1 {
-    font-size: 1.2rem;
+    font-size: 1.3204508rem;
     margin: 0;
     color: #191919;
-    font-weight: 400
+    font-weight: 400;
+    line-height: 1.6022544rem
 }
 
 .details-date {
     color: #a3a3a3;
-    font-size: .7rem;
-    padding: .3rem 0 .7rem
+    font-size: .6763285rem;
+    line-height: .6763285rem!important;
+    padding: 1.04669887rem 0 1.83574879rem
 }
 
 .details-date span {
-    padding-right: 1rem
+    padding-right: .805152979rem
 }
 
 .details {
+    font-family: -apple-system, "Hiragino Sans GB", Roboto, "Droid Sans", "Microsoft YaHei", "Microsoft YaHei UI", "Microsoft JhengHei UI", STHeiti, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Helvetica Neue", sans-serif;
     color: #474747;
     overflow: hidden;
     font-size: 1rem
 }
 
 .news-comment span,
-.notalk,
 .related-name span {
-    font-size: .8rem
+    font-size: .86956521rem
 }
 
 .details p {
-    padding-bottom: 1rem
+    font-size: .933977455rem;
+    line-height: 1.336553945rem;
+    margin-bottom: 1.2077294rem
 }
 
 .details p:empty {
@@ -81,7 +105,7 @@ body.transparent {
 .news-talk,
 .related-articles {
     margin: .5rem auto;
-    padding: 1rem;
+    padding: 1.449275362rem .805152979rem;
     background: #fefefe;
     display: none
 }
@@ -90,28 +114,29 @@ body.transparent {
     margin-bottom: 0
 }
 
-.news-title,
-.related-articles-title,
-.related-title {
-    border-bottom: 1px solid #e0e0e0;
-    height: auto
-}
-
 .news-comment,
-.related-name {
-    line-height: .8rem;
-    padding: 0 0 1rem;
-    color: #474747;
-    border-bottom: 1px solid #f34d32;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 6rem;
-    z-index: 100
+.news-title,
+.related-name,
+.related-title {
+    line-height: .86956521rem;
+    padding: 0;
+    color: #191919;
+    width: 100%;
+    z-index: 100;
+    text-align: center
 }
 
-.related-name {
-    border-bottom-color: #1c93e7
+.news-title,
+.notalk,
+.related-title {
+    margin-bottom: 1.0628019rem
+}
+
+#page_news_details a.DownloadApp {
+    display: block;
+    margin: 1.0628019rem auto;
+    width: 75%;
+    font-size: .6763285rem
 }
 
 .news-comment img,
@@ -132,30 +157,17 @@ body.transparent {
     border: 0
 }
 
-.notalk {
-    text-align: center;
-    line-height: 3rem;
-    color: #a3a3a3;
-    padding-top: 1rem
+.notalk img {
+    margin: 0 auto;
+    width: 45%;
+    height: auto;
+    display: block
 }
 
 .related {
     margin: 0 auto;
-    padding: 1rem;
+    padding: 1.0628019rem .805152979rem;
     background: #fefefe
-}
-
-.related-list .small-image {
-    padding: .8rem 0
-}
-
-.related-news-item {
-    box-sizing: border-box;
-    margin: .8rem 0 .1rem;
-    padding: 0;
-    border: 1px solid #eaeaea;
-    display: inline-block;
-    width: 61.8%
 }
 
 .related-news-item>a {
@@ -229,24 +241,6 @@ body.transparent {
     vertical-align: middle
 }
 
-.related-list {
-    width: 100%;
-    color: #474747;
-    display: inline-block
-}
-
-.related-list-inner {
-    width: auto;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden
-}
-
 .related-list-inner::-webkit-scrollbar {
     display: none
 }
@@ -256,7 +250,7 @@ body.transparent {
 }
 
 #img_video.hidden {
-    display: none;
+    display: none
 }
 
 #img_video::after {
@@ -295,7 +289,6 @@ body.transparent {
 
 .details-media {
     border-top: 1px solid #e0e0e0;
-    display: inline-block;
     width: 100%;
     padding-top: .7rem;
     display: none

@@ -13,13 +13,13 @@ seajs.config({
 });
 var COVER = {
   version: '1.6.0', // 版本
-  debug: false,
-  httpUrl: 'http://api.thecover.cn', // 生产接口请求地址
-  // httpUrl: 'http://121.41.11.40', // 测试接口请求地址
-  livecast_api_base: 'http://livecast.thecover.cn', // 生产直播Ajax接口请求地址
-  // livecast_api_base: 'http://121.199.34.238:8082', // 生产直播Ajax接口请求地址
-  socketUrl: 'http://livecast.thecover.cn:9092', // 生产直播WebSocket接口地址
-  // socketUrl: 'http://121.199.34.238:9092', // 测试直播WebSocket接口地址
+  debug: true,
+  // httpUrl: 'http://api.thecover.cn', // 生产接口请求地址
+  httpUrl: 'http://121.41.11.40', // 测试接口请求地址
+  // livecast_api_base: 'http://livecast.thecover.cn', // 生产直播Ajax接口请求地址
+  livecast_api_base: 'http://121.199.34.238:8082', // 测试直播Ajax接口请求地址
+  // socketUrl: 'http://livecast.thecover.cn:9092', // 生产直播WebSocket接口地址
+  socketUrl: 'http://121.199.34.238:9092', // 测试直播WebSocket接口地址
   DownloadApp: 'downloadApp.html',
   DOWNLOAD_APP_JS: 'https://api.thecover.cn/download.js',
   APP_SCHEME_URL: 'cover://cn.thecover.www/open',
@@ -152,7 +152,7 @@ var COVER = {
         if (parseInt(result.status) === 0) {
           $d.resolve(result.data);
         } else {
-          $d.reject(self.errorMsg('网络请求失败~~'));
+          $d.reject(result.status);
         }
       },
       error: function (xhr, type) {
@@ -198,7 +198,7 @@ var COVER = {
   },
   jumpToExternalLink: function (arg) {
     arg = arg.toString();
-    console.log(arg);
+    // console.log(arg);
     if (!arg) {
       return 'javascript:void(0)';
     }

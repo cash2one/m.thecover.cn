@@ -1,10 +1,10 @@
 define(function (require) {
   var jQ = jQuery;
   var isData = true, // 是否有数据
-    subject_id = parseInt(COVER.getUrl('id')),
-    channel_type = parseInt(COVER.getUrl('channel_type')),
-    page = 1, // 页码
-    page_size = 15;
+      subject_id = parseInt(COVER.getUrl('id')),
+      channel_type = parseInt(COVER.getUrl('channel_type')),
+      page = 1, // 页码
+      page_size = 15;
   // 验证id、type是否为数值
   // console.log('channel_type): ', channel_type);
   if (isNaN(subject_id)) {
@@ -25,10 +25,11 @@ define(function (require) {
       COVER.backTop();
     },
     setDimensions: function () {
-      var img_w = jQ('#list_of_news').width() / 2;
+      var img_w = jQ('#list_of_news').width() * 0.4;
       var img_h = parseInt(img_w / 4 * 3);
       var single_big_img_h = parseInt(jQ('#list_of_news').width() / 16 * 9);
       var banner_h = parseInt(jQ(window).width() * 0.75);
+      console.log('setDimensions(): ', img_h);
       var text = [
         '.is-single-img .cover-of-single-imgs {border-left-width: ',
         (img_w / 10) + 'px;}',
@@ -50,21 +51,13 @@ define(function (require) {
     bindEvents: function () {
       var self = this;
       COVER.downloadUrl();
-      /*jQ('.DownloadApp').on('click', function () {
-        COVER.downloadApp('footer');
-      });
-      $('body').delegate('click', '.avatar-picture', function(){
-            COVER.downloadApp();
-      });
-      jQ('body').on('click', '#btn_fengmianhao_subscription', function () {
-            COVER.downloadApp('subject_page_btn_fengmianhao_subscription', subject_id, channel_type);
-      });*/
+
       // 监听是否滑动到底部
       jQ(window).scroll(function () {
         if (page <= 3) {
           var scrollTop = jQ(this).scrollTop(),
-            scrollHeight = jQ(document).height(),
-            windowHeight = jQ(this).height();
+              scrollHeight = jQ(document).height(),
+              windowHeight = jQ(this).height();
           if (scrollTop + windowHeight == scrollHeight && isData == true) {
             self.render();
           }
@@ -86,11 +79,11 @@ define(function (require) {
     },
     getSubjectData: function (data) {
       var payload = 'data=' + JSON.stringify({
-        "subject_id": subject_id,
-        "channel_type": channel_type,
-        "page": page,
-        "page_size": page_size
-      });
+            "subject_id": subject_id,
+            "channel_type": channel_type,
+            "page": page,
+            "page_size": page_size
+          });
       return COVER.$post(COVER.apis().getSubject, payload);
     },
     // 新闻列表渲染
@@ -106,40 +99,66 @@ define(function (require) {
           isData = false;
         }
         page++;
-
         data.channel_type = parseInt(data.channel_type);
-            if(data.channel_type === 10) {
-              data.class_name = 'zhuanlan fengmianhao';
-            } else if(data.channel_type === 13) {
-              data.class_name = 'zhuanti';
-            } else {
-              // data.channel_type === 5
-              data.class_name = 'zhuanlan';
-            }
-            // console.log(data.class_name);
-            data.big_img_height = (data.class_name === 'zhuanlan') ? (jQ(window).width() / 3 * 2) + 'px' : (jQ(window).width() / 216 * 203) + 'px';
-        data.head_img_height = ((jQ(window).width() / 216 * 203) * 0.25)+ 'px';
+        if (data.channel_type === 10) {
+          data.class_name = 'zhuanlan fengmianhao';
+          jQ('#cover_img_wrapper').addClass('zhuanlan fengmianhao');
+          console.log(jQ('.cover-img.zhuanlan').height() + jQ('#subject_name').height());
+        } else if (data.channel_type === 13) {
+          data.class_name = 'zhuanti';
+          jQ('#cover_img_wrapper').addClass('zhuanti');
+        } else {
+          // data.channel_type === 5
+          data.class_name = 'zhuanlan';
+          jQ('#cover_img_wrapper').addClass('zhuanlan');
+        }
+        if(data.subject_desc && data.subject_desc.trim().length > 0) {
+          data.has_content = '';
+        } else {
+          data.has_content = 'hidden';
+        }
+        console.log(data.class_name);
+        data.big_img_height = (data.class_name === 'zhuanlan') ? (jQ(window).width() / 1242 * 698) + 'px' : (jQ(window).width() / 1242 * 698) + 'px';
+        data.head_img_height = ((jQ(window).width() / 216 * 203) * 0.25) + 'px';
         var html = juicer(tpl, data);
-        return jQ.when(jQ('#list_of_news').append(html).promise(), jQ('#cover_img_wrapper').html(juicer(self.tpl_cover_image(), data)).promise());
+        if (jQ('#cover_img_wrapper').hasClass('zhuanti')) {
+          return jQ.when(jQ('#list_of_news').append(html).promise(), jQ('#cover_img_wrapper').html(juicer(self.tpl_cover_image_zhuanTi(), data)).promise());
+        } else {
+          return jQ.when(jQ('#list_of_news').append(html).promise(), jQ('#cover_img_wrapper').html(juicer(self.tpl_cover_image_zhuanLan(), data)).promise());
+        }
       });
     },
-    tpl_cover_image: function () {
+    tpl_cover_image_zhuanTi: function () {
+      console.log('tpl_cover_image_zhuanTi')
       return [
         '<div class="cover-img ${class_name}" style="height:${big_img_height};background-image:url(${big_img});">',
         '  <div class="layer"></div>',
         '  <p id="subject_name">',
         '    ${subject_name}',
         '  </p>',
-        '<a href="downloadApp.html" class="DownloadApp" data-lt="avatar">',
-        '  <div class="avatar-picture" style="width:${head_img_height};height:${head_img_height};">',
-        '    <img src="${head_img}" style="width:${head_img_height};height:${head_img_height};">',
-        '  </div>',
-        '</a>',
-        '  <a href="downloadApp.html" class="DownloadApp" data-lt="btn"><div id="btn_fengmianhao_subscription"></div></a>',
         '  <div class="bottom-cover"></div>',
         '</div>',
-        '<div id="subject_desc">',
+        '<div id="subject_desc" class="${has_content}">',
         '  ${subject_desc}',
+        '</div>'
+      ].join('');
+    },
+    tpl_cover_image_zhuanLan: function () {
+      console.log('tpl_cover_image_zhuanLan')
+      return [
+        '<div class="cover-img ${class_name}" style="height:${big_img_height};background-image:url(${big_img});">',
+        '  <div class="layer"></div>',
+        '  <div class="bottom-cover"></div>',
+        '  <div class="little-thumb" style="background-image:url(${big_img});"></div>',
+        '</div>',
+        '<p id="subject_name">',
+        '  ${subject_name}',
+        '</p>',
+        '<div id="subject_desc" class="${has_content}">',
+        '${subject_desc}',
+        '</div>',
+        '<div class="im-intresting">',
+        ' <img src="http://wapcdn.thecover.cn/wap/2.0.0/img/icn_subscribe.png">',
         '</div>'
       ].join('');
     },

@@ -34,11 +34,6 @@ ul {
     margin: 0
 }
 
-html {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
-}
-
 article,
 aside,
 details,
@@ -80,6 +75,10 @@ a {
 a:active,
 a:hover {
     outline-width: 0
+}
+
+p {
+    line-height: 1.5rem
 }
 
 abbr[title] {
@@ -198,6 +197,11 @@ legend {
     white-space: normal
 }
 
+.tc-list-source,
+.tc-menu ul {
+    white-space: nowrap
+}
+
 textarea {
     overflow: auto
 }
@@ -231,17 +235,7 @@ textarea {
 body {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.tc-btn-lg.DownloadApp,
-.tc-download-close {
-    position: relative;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    top: 50%
+    box-sizing: border-box
 }
 
 .btn-download-app,
@@ -255,6 +249,7 @@ body {
 }
 
 html {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, .1);
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     font-size: 16px
@@ -271,18 +266,6 @@ li,
 ul {
     list-style: none;
     padding: 0
-}
-
-a:link {
-    color: #474747
-}
-
-a:visited {
-    color: #f0523f
-}
-
-p {
-    line-height: 1.5rem
 }
 
 .tc-btn-lg,
@@ -314,8 +297,12 @@ video {
 .limited-max-width {
     width: 100%;
     max-width: 720px;
-    padding: 0 .3rem;
-    margin: 0 auto;
+    padding: 0 .38647rem;
+    margin: 0 auto
+}
+
+.content.limited-max-width {
+    padding: .38647rem
 }
 
 .tc-foot-download,
@@ -327,12 +314,13 @@ video {
 
 .tc-btn {
     border-radius: 5px;
-    background: #f0523f;
+    background: #e62f17;
     color: #fff;
-    line-height: 2.5rem;
-    max-height: 2.5rem;
+    line-height: 1.85185185rem;
+    max-height: 1.85185185rem;
     outline: 0;
-    border: 0
+    border: 0;
+    -webkit-appearance: none
 }
 
 .tc-btn-block {
@@ -365,16 +353,35 @@ video {
 }
 
 .tc-download-close {
-    float: right;
-    width: 1rem;
-    height: 1rem;
-    margin-left: .7rem;
-    transform: translateY(-50%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 10%;
+    height: 66%;
+    z-index: 100
+}
+
+.foot-download-a-layer,
+.foot-index-page-layer {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 66%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    text-decoration: none;
+    border: none;
+    background-color: transparent
+}
+
+.foot-index-page-layer {
     z-index: 100;
-    background-image: url(http://webcdn.thecover.cn/wap/1.0.0/img/close-icon.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain
+    width: 40%;
+    height: 100%;
+    right: unset;
+    left: 0
 }
 
 .tc-download-close img,
@@ -382,15 +389,9 @@ video {
     width: 100%
 }
 
-.tc-head,
-.tc-header {
-    background: #f8f8f8
-}
-
-.tc-header {
-    border-bottom: 1px solid #e7e7e7;
-    display: table;
-    display: none
+.tc-head {
+    height: 2.4154rem;
+    line-height: 2.4154rem
 }
 
 .small-image,
@@ -413,17 +414,36 @@ video {
 }
 
 .tc-head-menu.limited-max-width {
+    position: relative;
     margin: 0 auto;
     padding: 0;
+    height: 100%;
+    background-color: #d4412a
 }
 
 .tc-menu {
-    line-height: 2.5rem;
     width: 88%;
-    color: #474747;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     display: inline-block
+}
+
+.tc-menu a,
+.tc-menu a:link,
+.tc-menu a:visited {
+    font-size: .8695652rem;
+    color: #d9ffff;
+    display: inline-block;
+    width: 100%;
+    height: 100%
+}
+
+.tc-menu .tc-menu-hover a,
+.tc-menu .tc-menu-hover a:link,
+.tc-menu .tc-menu-hover a:visited {
+    color: #fff;
+    font-size: .93397745rem;
+    font-weight: 700
 }
 
 .news-items,
@@ -449,34 +469,26 @@ video {
     display: inline-block
 }
 
-.tc-menu ul {
-    white-space: nowrap
-}
-
 .tc-menu ul li {
-    width: 3.5rem;
-    color: #474747;
-    -webkit-transition: font-size .3s ease-in;
-    -moz-transition: font-size .3s ease-in;
-    -ms-transition: font-size .3s ease-in;
-    -o-transition: font-size .3s ease-in;
-    transition: font-size .3s ease-in
+    width: 3.15rem
 }
 
 .tc-menu-right {
-    float: right;
-    line-height: 1rem;
-    margin-right: .5rem;
-    cursor: pointer
-}
-
-.tc-menu-right img {
-    height: 2.3rem;
-    display: block
-}
-
-.tc-menu-hover {
-    font-size: 1.1rem
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2.22222rem;
+    height: 2.4154rem;
+    line-height: 2.4154rem;
+    cursor: pointer;
+    background-image: url(http://7xr4nk.com1.z0.glb.clouddn.com/wap/1.7.0/img/right-arrow.png);
+    background-size: 1.2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-left: 1px solid #d4412a;
+    -webkit-box-shadow: -3px 0 6px rgba(150, 45, 30, .7);
+    -moz-box-shadow: -3px 0 6px rgba(150, 45, 30, .7);
+    box-shadow: -3px 0 6px rgba(150, 45, 30, .7)
 }
 
 .tc-portrait {
@@ -513,14 +525,20 @@ video {
 }
 
 .tc-foot-download {
-    background-color: rgba(255, 255, 255, .8);
     position: fixed;
     bottom: 0;
     left: 0;
-    padding: .3rem 1.2rem;
+    right: 0;
+    padding: 0;
     width: 100%;
-    height: 2.625rem;
     z-index: 1000
+}
+
+.tc-foot-download img.bg {
+    width: 100%;
+    height: auto;
+    border: none;
+    vertical-align: middle
 }
 
 .news-items>a,
@@ -557,7 +575,7 @@ video {
 }
 
 .page-index {
-    background-color: #e8e9e8;
+    background-color: #f8f8f8;
     padding-bottom: 3rem;
     overflow-x: hidden
 }
@@ -576,7 +594,7 @@ video {
     display: block;
     width: 100%;
     height: 100%;
-    background-color: #fff
+    background-color: #fefefe
 }
 
 .news-items-meta-prop,
@@ -605,7 +623,7 @@ video {
 
 .is-single-img .cover-of-single-imgs {
     position: absolute;
-    right: 50%;
+    right: 60%;
     top: 0;
     bottom: 0;
     width: 0;
@@ -627,7 +645,7 @@ video {
 }
 
 .is-single-img .small-image-img {
-    width: 50%;
+    width: 40%;
     float: left;
     height: auto
 }
@@ -640,8 +658,8 @@ video {
 }
 
 .is-single-img .small-image-title {
-    width: 50%;
-    padding: .65rem .45625rem .52rem .625rem;
+    width: 60%;
+    padding: .72463rem .5475rem;
     position: absolute;
     right: 0;
     height: 100%;
@@ -656,7 +674,8 @@ video {
 
 .big-image-title,
 .no-img .no-image-title {
-    padding: .9375rem .6875rem
+    padding: .75684rem .5475rem;
+    min-height: 4.2673rem
 }
 
 .is-single-big-img .thumbnail-wrapper,
@@ -665,13 +684,13 @@ video {
 }
 
 .btn-play {
-    width: 2.8rem;
-    height: 2.8rem;
+    width: 2.89855rem;
+    height: 2.89855rem;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -1.4rem;
-    margin-left: -1.4rem;
+    margin-top: -1.449275rem;
+    margin-left: -1.449275rem;
     background-image: url(http://wapcdn.thecover.cn/wap/1.0.0/img/player.png)
 }
 
@@ -684,10 +703,10 @@ video {
 }
 
 .news-items-meta {
-    font-size: .7rem;
+    font-size: .6763285rem;
     line-height: 1rem;
     height: 1rem;
-    color: #626262;
+    color: #a3a3a3;
     vertical-align: bottom
 }
 
@@ -700,9 +719,9 @@ video {
 
 .is-single-img .news-items-meta {
     position: absolute;
-    right: .45625rem;
-    bottom: .52rem;
-    left: .625rem
+    right: .5475rem;
+    bottom: .72463rem;
+    left: .5475rem
 }
 
 .news-items-meta-prop ul li {
@@ -724,7 +743,6 @@ video {
 .tc-list-source {
     min-width: 4rem;
     text-overflow: ellipsis;
-    white-space: nowrap;
     margin-right: .5rem
 }
 
@@ -747,17 +765,22 @@ video {
 }
 
 .news-items h3 {
-    color: #131313;
-    font-size: .9rem;
-    line-height: 1.5rem;
+    color: #333;
+    font-size: .966183574rem;
+    line-height: 1.12721417rem;
     font-weight: 400
 }
 
 .tc-list-atlasitem h3 {
-    font-size: .9rem;
-    line-height: 1.2rem;
-    color: #474747;
+    font-size: .966183574rem;
+    line-height: 1.1rem;
+    color: #333;
     margin: 0 0 .3rem
+}
+
+a:visited .news-items h3,
+a:visited .tc-list-atlasitem h3 {
+    color: #757575
 }
 
 .tc-list-atlas {
@@ -839,12 +862,13 @@ video {
 }
 
 .btn-player {
-    width: 3rem;
-    height: 3rem;
+    width: 2.89855rem;
+    height: 2.89855rem;
     position: absolute;
-    top: 3.5rem;
+    top: 50%;
     left: 50%;
-    margin-left: -1.5rem;
+    margin-left: -1.449275rem;
+    margin-top: -1.449275rem;
     background-image: url(http://wapcdn.thecover.cn/wap/1.0.0/img/player.png);
     background-position: center;
     background-size: cover;
@@ -867,7 +891,10 @@ video {
 
 .tc-footer a:link,
 .tc-footer a:visited {
-    color: #fff
+    color: #fff;
+    display: inline-block;
+    width: 100%;
+    height: 100%
 }
 
 .tc-footer ul li {
@@ -969,8 +996,7 @@ video {
 
 #bannerbox {
     -webkit-background-size: cover;
-    background-size: cover;
-    margin-bottom: .3rem
+    background-size: cover
 }
 
 .swipe {
@@ -1001,26 +1027,26 @@ video {
 
 .swipe-text {
     position: absolute;
-    font-size: 1rem;
+    font-size: .96618357rem;
     font-weight: 700;
-    color: #fff;
-    background: linear-gradient(rgba(0, 0, 0, .05), rgba(0, 0, 0, .4));
+    color: #fefefe;
+    background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .6));
     width: 100%;
     margin: 0 auto;
-    line-height: 1.625rem;
+    line-height: 1.11111rem;
     bottom: 0;
-    padding: 1rem;
+    padding: .3864rem;
     left: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    height: 5.2rem
+    height: 2.9790660rem
 }
 
 .swipe-dot {
     position: absolute;
-    right: 1rem;
-    bottom: 1rem;
+    right: .3864rem;
+    bottom: .64412rem;
     margin: 0;
     z-index: 10
 }
@@ -1033,11 +1059,14 @@ video {
     border-radius: 50%;
     float: left;
     margin-left: .15rem;
-    background-color: rgba(255, 255, 255, .5)
+    background-color: #a3a3a3
 }
 
 .swipe-dot .no {
-    background-color: rgba(255, 255, 255, 1)
+    background-color: #eb4d3d;
+    width: .6rem;
+    height: .6rem;
+    margin-top: -.15rem
 }
 
 .btn-download-app {
@@ -1105,14 +1134,24 @@ audio::-webkit-media-controls-panel {
 #list_of_news * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0)
 }
 
 #list_of_news .news-items {
     background-color: transparent;
-    margin-bottom: .3rem;
+    margin-bottom: .38647rem;
     -webkit-box-shadow: 3px 2px 5px 2px rgba(135, 128, 128, .4);
     box-shadow: 3px 2px 5px 2px rgba(135, 128, 128, .4)
+}
+
+#page_news_details #list_of_news .news-items {
+    -webkit-box-shadow: none;
+    box-shadow: none
+}
+
+#page_news_details #list_of_news .small-image-title {
+    border-bottom: 2px solid #eaeaea
 }
 
 #list_of_news .news-items.no-img {
@@ -1127,12 +1166,11 @@ audio::-webkit-media-controls-panel {
     height: 4.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: .9rem;
-    margin: 0 0 .8rem
+    font-size: .966183574rem
 }
 
 #list_of_news .tc-list-news h3 {
-    font-size: .9rem
+    font-size: .966183574rem
 }
 
 #list_of_news .small-image {
@@ -1160,14 +1198,3 @@ audio::-webkit-media-controls-panel {
     border-radius: 3px;
     padding: 0 .3125rem
 }
-
-/* @media screen and (orientation: landscape) {
-    html {
-        -webkit-transform: scaleX(-1);
-        -moz-transform: scaleX(-1);
-        -ms-transform: scaleX(-1);
-        -o-transform: scaleX(-1);
-        transform: scaleX(-1);
-        display: none;
-    }
-} */

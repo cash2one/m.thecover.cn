@@ -1,73 +1,88 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="renderer" content="webkit">
     <meta name="apple-mobile-web-app-title" content="封面新闻" />
-    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="telephone=no, email=no, address=no" />
+    <meta name="theme-color" content="#d4412a">
     <title>封面新闻-因人而异</title>
     <link rel="alternate icon" type="image/png" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="http://wapcdn.thecover.cn/wap/1.0.0/img/favicon.png">
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/common.css">
-    <link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/details.css">
-    <!-- <link type="text/css" rel="stylesheet" href="css/common.css">
-    <link type="text/css" rel="stylesheet" href="css/details.css"> -->
+    <!--<link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/common.css">-->
+    <!--<link type="text/css" rel="stylesheet" href="http://wapcdn.thecover.cn/wap/1.0.0/css/details.css">-->
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/details.css">
     <script type="text/javascript">
-        window.onload = function () {
-            document.getElementById('startload').style.display = 'none';
-        }
+      window.onload = function () {
+        document.getElementById('startload').style.display = 'none';
+      }
     </script>
-</head>
+    <style id="inserted_via_script" type="text/css"></style>
+  </head>
 
-<body id="page_news_details" class="transparent">
-<div id="startload" style="height: 100%; width: 100%; background: #fefefe; position: fixed; z-index: 999; text-align: center; padding-top: 150px;"> <img src="http://7xso7d.com2.z0.glb.qiniucdn.com/public/img/load.gif" width="150px"> </div>
+  <body id="page_news_details" class="transparent">
+    <div id="startload" style="height: 100%; width: 100%; background: #fefefe; position: fixed; z-index: 999; text-align: center; padding-top: 150px;"> <img src="http://7xso7d.com2.z0.glb.qiniucdn.com/public/img/load.gif" width="150px"> </div>
     <div class="limited-max-width tc-video">
-        <video id="video" src="http://wapcdn.thecover.cn/wap/1.0.0/img/default_banner.jpg" controls="controls" poster="http://7xr4nk.com2.z0.glb.qiniucdn.com/wap/img/default_banner.jpg"></video>
+      <video id="video" src="http://wapcdn.thecover.cn/wap/1.0.0/img/default_banner.jpg" controls="controls" poster="http://7xr4nk.com2.z0.glb.qiniucdn.com/wap/img/default_banner.jpg"></video>
     </div>
-    <a href="downloadApp.html" class="DownloadApp" data-lt="VR"><div id="img_video" class="hidden"></div></a>
+    <a href="downloadApp.html" class="DownloadApp" data-lt="VR">
+      <div id="img_video" class="hidden"></div>
+    </a>
     <article class="article limited-max-width">
-        <h1></h1>
-        <div class="details-date"> <span class="details-source"></span> <span class="details-time"></span> </div>
-        <div class="details"></div>
-        <div class="details-media">
-            <img src="http://7xr4nk.com2.z0.glb.qiniucdn.com/wap/img/default_banner.jpg" class="details-media-headimg">
-            <div class="details-media-content">
-                <span class="dmc-title"></span><br>
-                <span class="dmc-desc"></span>
-            </div>
-            <a href="downloadApp.html" class="DownloadApp" data-lt="attention">
-                <div class="details-media-btn">+ 关注</div>
-            </a>
+      <h1></h1>
+      <div class="details-date"> <span class="details-source"></span> <span class="details-time"></span> </div>
+      <div class="details"></div>
+      <div class="details-media">
+        <img src="http://7xr4nk.com2.z0.glb.qiniucdn.com/wap/img/default_banner.jpg" class="details-media-headimg">
+        <div class="details-media-content">
+          <span class="dmc-title"></span><br>
+          <span class="dmc-desc"></span>
         </div>
-    </article>
-    <div class="news-talk limited-max-width">
-        <div class="news-title">
-            <div class="news-comment tc-disbk"> <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/talk-icon.png" alt="最新评论"> <span>最新评论</span> </div>
-        </div>
-        <div class="news-list">
-            <ul></ul>
-        </div>
-        <a href="downloadApp.html" class="DownloadApp" data-lt="talk">
-            <button type="button" class="tc-btn tc-btn-block">打开封面新闻，查看更多评论</button>
+        <a href="downloadApp.html" class="DownloadApp" data-lt="attention">
+          <div class="details-media-btn">+ 关注</div>
         </a>
-        <div class="tc-foot-download" id="foot-download">
-            <div class="tc-logo">
-                <a href="index.html">
-                    <img src="http://wapcdn.thecover.cn/wap/1.0.0/img/logo-icon.png" alt="封面新闻-因人而异">
-                </a>
-            </div>
-            <div class="tc-download-close" id="foot-close-btn"></div>
-            <a href="downloadApp.html" class="DownloadApp" data-lt="foot">
-                <button class="tc-btn tc-btn-lg tc-fr">打开APP</button>
-            </a>
+      </div>
+    </article>
+
+    <div class="related limited-max-width">
+      <div class="related-title">
+        <div class="related-name tc-disbk">
+          <img src="http://wapcdn.thecover.cn/wap/2.0.0/img/news-icon.png" alt="相关新闻">
+          <span>推荐新闻</span>
         </div>
+      </div>
+      <div class="related-list">
+        <div class="related-list-inner" id="list_of_news">
+        </div>
+      </div>
     </div>
-<script src="http://wapcdn.thecover.cn/wap/1.0.0/js/common.js"></script>
-<!-- <script src="js/common.js"></script> -->
-</body>
+
+
+    <div class="news-talk limited-max-width">
+      <div class="news-title">
+        <div class="news-comment tc-disbk"> <img src="http://wapcdn.thecover.cn/wap/2.0.0/img/talk-icon.png" alt="最新评论"> <span>最新评论</span> </div>
+      </div>
+      <div class="news-list">
+        <ul></ul>
+      </div>
+      <a href="downloadApp.html" class="DownloadApp" data-lt="talk">
+        <button type="button" class="tc-btn tc-btn-block">打开封面新闻，查看更多评论</button>
+      </a>
+
+      <div class="tc-foot-download" id="foot-download">
+        <a href="index.html" class="foot-index-page-layer"></a>
+        <div class="tc-download-close" id="foot-close-btn"></div>
+        <a href="downloadApp.html" class="foot-download-a-layer" data-lt="foot"></a>
+        <img class="bg" src="http://wapcdn.thecover.cn/wap/2.0.0/img/bg-fixed-footer.png">
+      </div>
+    </div>
+    <!--<script src="http://wapcdn.thecover.cn/wap/1.0.0/js/common.js"></script>-->
+    <script src="js/common.js"></script>
+  </body>
 
 </html>
